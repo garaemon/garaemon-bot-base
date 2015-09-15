@@ -18,11 +18,11 @@
     "hubot-scripts": "^2.16.2",
     "hubot-shipit": "^0.2.0",
     "hubot-slack": "^3.3.0",
-    "hubot-sushiyuki": "0.0.11"
+    "hubot-sushiyuki": "0.0.11",
+    "moment": "^2.10.6"
   },
   "engines": {
     "node": "0.10.x"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

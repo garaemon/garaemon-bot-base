@@ -6,7 +6,8 @@ module.exports = function(robot) {
     var aliases = {
         // original command <- regs
         "天気": [/^[\s]*天気[\s]*$/, /^[\s]*weather[\s]*$/],
-        "show history": [/^[\s]*history[\s]*$/, /^[\s]*履歴[\s]*$/]
+        "show history": [/^[\s]*history[\s]*$/, /^[\s]*履歴[\s]*$/],
+        "sushi me": [/^[\s]*sushi[\s]*$/]
     }
 
     for (var original_command in aliases) {

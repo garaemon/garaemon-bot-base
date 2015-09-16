@@ -13,10 +13,13 @@ module.exports = function(robot) {
         for (var new_regexp_index in aliases[original_command]) {
             var new_regexp = aliases[original_command][new_regexp_index];
             console.log(util.format("%s => %s", new_regexp, original_command));
-            robot.hear(new_regexp, function(res) {
-                res.message.text = res.robot.name + ' ' + original_command;
-                res.robot.receive(res.message);
-            });
+            // wrap to make a new scope
+            (function(new_command, old_command) {
+                robot.hear(new_command, function(res) {
+                    res.message.text = res.robot.name + ' ' + old_command;
+                    //res.robot.receive(res.message);
+                });
+            })(new_regexp, original_command);
         }
     }
 };

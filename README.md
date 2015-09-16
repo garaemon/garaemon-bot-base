@@ -30,3 +30,15 @@
   ```
   heroku config:add TZ=Asia/Tokyo
   ```
+* `HUBOT_SLACK_CHANNELMODE`
+
+  see http://qiita.com/sotayamashita/items/a843c42dfa3243e4d353
+  ```
+  heroku config:set HUBOT_SLACK_CHANNELMODE=whitelist
+  ```
+* `HUBOT_SLACK_CHANNELS`
+
+  see http://qiita.com/sotayamashita/items/a843c42dfa3243e4d353
+  ```
+  heroku config:set HUBOT_SLACK_CHANNELS="#ueda-local"
+  ```

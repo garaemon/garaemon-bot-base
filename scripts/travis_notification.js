@@ -22,10 +22,12 @@ module.exports = function(robot) {
                         if (urls.length >= 2) {
                             console.log("have urls");
                             if (msg.attachments[0].text.match(/by (.*) passed/)) {
-                                var name = msg.attachments[0].text.match(/by (.*) passed/)[1];
-                                robot.send({
-                                    room: channel
-                                }, util.format("@%s Build finished by %s\nReview %s", owener, name, urls[1]));
+                                if (urls.length == 3) { // PR message has 3 urls
+                                    var name = msg.attachments[0].text.match(/by (.*) passed/)[2];
+                                    robot.send({
+                                        room: channel
+                                    }, util.format("@%s Build finished by %s\nReview %s", owener, name, urls[1]));
+                                }
                             }
                             else if (msg.attachments[0].text.match(/by (.*) (errored|failed)/)) {
                                 var name = msg.attachments[0].text.match(/by (.*) (errored|failed)/)[1];

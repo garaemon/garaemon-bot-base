@@ -25,8 +25,8 @@ module.exports = function(robot) {
                                     room: channel
                                 }, util.format("@%s Build finished by %s\nReview %s", owener, name, urls[1]));
                             }
-                            else if (msg.attachments[0].text.match(/by (.*) errored/)) {
-                                var name = msg.attachments[0].text.match(/by (.*) errored/)[1];
+                            else if (msg.attachments[0].text.match(/by (.*) (errored|failed)/)) {
+                                var name = msg.attachments[0].text.match(/by (.*) (errored|failed)/)[1];
                                 robot.send({
                                     room: channel
                                 }, util.format("@%s Failed to build by %s\nRestart %s", owener, name, urls[1]));

@@ -31,7 +31,7 @@ module.exports = function(robot) {
                                 var name = msg.attachments[0].text.match(/by (.*) (errored|failed)/)[1];
                                 robot.send({
                                     room: channel
-                                }, util.format("@%s Failed to build by %s\nRestart %s", owener, name, urls[1]));
+                                }, util.format("@%s Failed to build by %s\nRestart %s", owener, name, urls[0]));
                             }
                         }
                     }

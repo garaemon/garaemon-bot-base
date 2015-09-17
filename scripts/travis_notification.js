@@ -17,7 +17,7 @@ module.exports = function(robot) {
                         var urls = msg.attachments[0].text.match(/<[^<>]*>/g);
                         // urls[0] - travis lnk
                         // urls[1] and urls[2] - github link
-                        if (urls.length == 3) {
+                        if (urls.length >= 2) {
                             console.log("have urls");
                             if (msg.attachments[0].text.match(/by (.*) passed/)) {
                                 var name = msg.attachments[0].text.match(/by (.*) passed/)[1];

@@ -14,7 +14,10 @@ module.exports = function(robot) {
                         console.log(msg.attachments[0].text);
                         // msg.attachments[0].text should be like
                         // "Build <https://travis-ci.org/jsk-ros-pkg/jsk_planning/builds/80766954|#76> (<https://github.com/jsk-ros-pkg/jsk_planning/pull/28|b214435>) of jsk-ros-pkg/jsk_planning@master in PR <https://github.com/jsk-ros-pkg/jsk_planning/pull/28|#28> by Ryohei Ueda passed in 13 min 26 sec"
-                        var urls = msg.attachments[0].text.match(/<[^<>]*>/g);
+                        var urls = msg.attachments[0].text.match(/<[^<>]*>/g)
+                            .map(function(url) {
+                                return url.match(/https:[^\|]*/g)[0]:
+                            });
                         // urls[0] - travis lnk
                         // urls[1] and urls[2] - github link
                         if (urls.length >= 2) {

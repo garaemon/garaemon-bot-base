@@ -23,4 +23,9 @@ module.exports = function(robot) {
             })(new_regexp, original_command);
         }
     }
+    // Special case for calculation
+    robot.hear(/^[0-9\.\*\+\/\(\)\s]+$/, function(res) {
+        // looks like equation
+        res.message.text = res.robot.name + ' calculate ' + res.message.text;
+    });
 };

@@ -13,5 +13,6 @@
     "hubot-weather-ja",
     "hubot-calculator",
     "hubot-kakugen",
-    "hubot-pokemon"
+    "hubot-pokemon",
+    "hubot-rss-reader"
 ]

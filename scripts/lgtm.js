@@ -42,7 +42,7 @@ module.exports = function(robot) {
     f(count, [], callback);
   };
 
-  robot.respond(/lgtm(\s+bomb(\s+(\d+))?)?$/i, function(res) {
+  robot.here(/lgtm(\s+bomb(\s+(\d+))?)?$/i, function(res) {
     var bomb = res.match[1];
     var bombN = res.match[3];
     var count = (bombN ? parseInt(bombN, 10) : (bomb ? 5 : 1));

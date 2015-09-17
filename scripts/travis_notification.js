@@ -6,6 +6,7 @@ module.exports = function(robot) {
     if (robot.adapter.client) {
         robot.adapter.client.on("raw_message", function(msg) {
             if (msg.subtype == "bot_message") { // bot_id = B08QP3RRT?
+                console.log(msg);
                 if (msg.attachments.len > 0) {
                     if (msg.attachments[0].text) {
                         // msg.attachments[0].text should be like
@@ -16,8 +17,15 @@ module.exports = function(robot) {
                         if (urls.len == 3) {
                             if (msg.attachments[0].text.match(/by (.*) passed/)) {
                                 var name = msg.attachments[0].text.match(/by (.*) passed/)[1];
-                                robot.send({room: channel},
-                                           util.format("@%s Build finished by %s\nReview %s", owener, name, urls[1]));
+                                robot.send({
+                                    room: channel
+                                }, util.format("@%s Build finished by %s\nReview %s", owener, name, urls[1]));
+                            }
+                            else if (msg.attachments[0].text.match(/by (.*) errored/)) {
+                                var name = msg.attachments[0].text.match(/by (.*) errored/)[1];
+                                robot.send({
+                                    room: channel
+                                }, util.format("@%s Failed to build by %s\nRestart %s", owener, name, urls[1]));
                             }
                         }
                     }

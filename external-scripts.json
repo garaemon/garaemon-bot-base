@@ -11,5 +11,6 @@
     "hubot-shipit",
     "hubot-sushiyuki",
     "hubot-weather-ja",
-    "hubot-calculator"
+    "hubot-calculator",
+    "hubot-kakugen"
 ]

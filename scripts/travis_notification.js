@@ -26,7 +26,7 @@ module.exports = function(robot) {
                                     var name = msg.attachments[0].text.match(/by (.*) passed/)[2];
                                     robot.send({
                                         room: channel
-                                    }, util.format("@%s Build finished by %s\nReview %s", owener, name, urls[1]));
+                                    }, util.format("@%s :beer: Review %s\nOriginal PR is written by %s", owener, urls[1], name));
                                 }
                             }
                             else if (msg.attachments[0].text.match(/by (.*) (errored|failed)/)) {

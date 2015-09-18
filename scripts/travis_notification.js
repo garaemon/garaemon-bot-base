@@ -1,6 +1,7 @@
 var util = require("util");
 
 module.exports = function(robot) {
+    return;
     channel = process.env["BOT_CHANNEL"] || "#owerner";
     owener = process.env["OWENER_NAME"] || "owerner";
     if (robot.adapter.client) {
